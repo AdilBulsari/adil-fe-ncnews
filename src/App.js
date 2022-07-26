@@ -1,9 +1,14 @@
+
 import { useState } from 'react'
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
+import Article from './Components/Article/Article'
+
+
 
 import { TopicsContext } from './Components/Context/TopicsContext'
-import Home from './Components/Home/Home'
+
 import NavBar from './Components/Navigation/NavBar'
 import TopicInfo from './Components/Topics/TopicInfo'
 import Topics from './Components/Topics/Topics'
@@ -19,6 +24,7 @@ function App() {
     return (
         <BrowserRouter>
             <div className="App">
+
                 <TopicsContext.Provider value={{ topics, setTopic }}>
                     <NavBar />
                     <Routes>
@@ -30,6 +36,8 @@ function App() {
                         />
                     </Routes>
                 </TopicsContext.Provider>
+
+
             </div>
         </BrowserRouter>
     )
