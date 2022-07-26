@@ -1,6 +1,6 @@
-import axios from 'axios'
 import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { getAllTopics } from '../API/Api'
 import { TopicsContext } from '../Context/TopicsContext'
 
 import styles from '../Topics/Topics.module.css'
@@ -11,12 +11,10 @@ function Topics() {
 
     useEffect(() => {
         setIsloading(true)
-        axios
-            .get('https://adil-nc-news.herokuapp.com/api/topics')
-            .then((res) => {
-                setTopic(res.data.topic)
-                setIsloading(false)
-            })
+        getAllTopics().then(({ topic }) => {
+            setTopic(topic)
+            setIsloading(false)
+        })
     }, [setTopic])
 
     return isLoading ? (

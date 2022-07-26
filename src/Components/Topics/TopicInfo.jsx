@@ -1,24 +1,21 @@
-import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { getArticlesForTopics } from '../API/Api'
+import ArticleCard from '../Card/ArticleCard'
 import styles from './TopicInfo.module.css'
 
 function TopicInfo() {
     const { topic_name } = useParams()
-    const [topic, setTopic] = useState([])
+    const [article, setArticle] = useState([])
 
     const [isLoading, setIsloading] = useState(null)
 
     useEffect(() => {
         setIsloading(true)
-        axios
-            .get(
-                `https://adil-nc-news.herokuapp.com/api/articles?filter_by=${topic_name}`
-            )
-            .then((res) => {
-                setTopic(res.data)
-                setIsloading(false)
-            })
+        getArticlesForTopics(topic_name).then((data) => {
+            setArticle(data)
+            setIsloading(false)
+        })
     }, [topic_name])
 
     return isLoading ? (
@@ -31,27 +28,7 @@ function TopicInfo() {
                 All Articles for{' '}
                 {topic_name.charAt(0).toUpperCase() + topic_name.slice(1)}
             </h1>
-            <ul>
-                {topic.map((eachTopic) => (
-                    <li className={styles.topicInfo_card}>
-                        <p>
-                            <b>Title :</b> {eachTopic.title}
-                        </p>
-                        <p>
-                            <b>Author :</b>
-                            {eachTopic.author}
-                        </p>
-                        <p>
-                            <b>Votes :</b>
-                            {eachTopic.votes}
-                        </p>
-                        <p>
-                            <b>Date Posted :</b>
-                            {eachTopic.created_at}
-                        </p>
-                    </li>
-                ))}
-            </ul>
+            <ArticleCard article={article} />
         </div>
     )
 }
