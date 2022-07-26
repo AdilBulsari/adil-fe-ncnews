@@ -7,10 +7,8 @@ function NavBar() {
             <nav className={style.navbar}>
                 <div className={style.logo}>FE NC NEWS</div>
 
-
                 <div className={style.nav_links}>
                     <ul className={style.menu}>
-
                         <li>
                             <Link to="/">Home</Link>
                         </li>
@@ -21,9 +19,6 @@ function NavBar() {
                         <li>
                             <Link to="/api/getAllTopics">Topics</Link>
                         </li>
-                    </div>
-          
-
                     </ul>
                 </div>
             </nav>
