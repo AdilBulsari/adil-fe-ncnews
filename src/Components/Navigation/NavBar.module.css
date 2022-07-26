@@ -27,11 +27,3 @@
 .menu li {
     padding: 5px 14px;
 }
-/* DROPDOWN MENU */
-.services {
-    position: relative;
-}
-
-.services:hover .dropdown {
-    display: block;
-}

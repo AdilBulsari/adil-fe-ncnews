@@ -49,7 +49,7 @@ You can tidy up your local branches once they have been pull into main by deleti
 ```
 git branch -D <local branch>
 ```
-  
+
 ## Important
 
 This sprint is among the ones we'll ask you to complete in order to put you forward for jobs. Put a little bit of love into it! :) <3

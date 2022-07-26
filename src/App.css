@@ -1,3 +1,13 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .App {
     text-align: center;
 }
@@ -9,6 +19,7 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 a {
     text-decoration: none;
 }
