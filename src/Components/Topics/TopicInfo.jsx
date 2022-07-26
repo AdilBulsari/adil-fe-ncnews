@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getArticlesForTopics } from '../API/Api'
-import ArticleCard from '../Article/ArticleCard'
+import ArticleCard from './TopicLists'
 import styles from './TopicInfo.module.css'
 
 function TopicInfo() {
