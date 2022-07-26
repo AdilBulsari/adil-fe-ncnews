@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { TopicsContext } from '../Context/TopicsContext'
 
@@ -7,16 +7,23 @@ import styles from '../Topics/Topics.module.css'
 
 function Topics() {
     const { topics, setTopic } = useContext(TopicsContext)
+    const [isLoading, setIsloading] = useState(true)
 
     useEffect(() => {
+        setIsloading(true)
         axios
             .get('https://adil-nc-news.herokuapp.com/api/topics')
             .then((res) => {
                 setTopic(res.data.topic)
+                setIsloading(false)
             })
     }, [setTopic])
 
-    return (
+    return isLoading ? (
+        <div className={styles.loading}>
+            <p>Loading ... </p>
+        </div>
+    ) : (
         <section className={styles.table_flex}>
             <h1>There are total {topics.length} topics </h1>
             <table className={styles.topic_table}>

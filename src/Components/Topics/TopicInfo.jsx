@@ -5,28 +5,27 @@ import styles from './TopicInfo.module.css'
 
 function TopicInfo() {
     const { topic_name } = useParams()
-    const [topic, setTopic] = useState([
-        {
-            author: '',
-            comment_count: '',
-            title: '',
-            topic: '',
-            votes: '',
-            created_at: '',
-        },
-    ])
+    const [topic, setTopic] = useState([])
+
+    const [isLoading, setIsloading] = useState(null)
 
     useEffect(() => {
+        setIsloading(true)
         axios
             .get(
                 `https://adil-nc-news.herokuapp.com/api/articles?filter_by=${topic_name}`
             )
             .then((res) => {
                 setTopic(res.data)
+                setIsloading(false)
             })
     }, [topic_name])
 
-    return (
+    return isLoading ? (
+        <div className={styles.loading}>
+            <p>Loading ... </p>
+        </div>
+    ) : (
         <div className={styles.topic_detail}>
             <h1>
                 All Articles for{' '}

@@ -17,3 +17,10 @@ th {
     margin-left: 20%;
     margin-top: 2%;
 }
+
+.loading {
+    text-align: center;
+    font-size: xx-large;
+    color: rgb(0, 0, 0);
+    margin-top: 20px;
+}

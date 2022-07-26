@@ -21,3 +21,10 @@ ul {
     box-shadow: 0 4px 8px 0 rgba(23, 183, 197, 0.2),
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+.loading {
+    text-align: center;
+    font-size: xx-large;
+    color: rgb(0, 0, 0);
+    margin-top: 20px;
+}
