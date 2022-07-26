@@ -17,3 +17,11 @@ export function getAllTopics() {
             return res.data
         })
 }
+
+export function getArticleById(article_id) {
+    return axios
+        .get(`https://adil-nc-news.herokuapp.com/api/articles/${article_id}`)
+        .then((res) => {
+            return res.data
+        })
+}

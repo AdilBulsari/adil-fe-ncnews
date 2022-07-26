@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getArticlesForTopics } from '../API/Api'
-import ArticleCard from '../Card/ArticleCard'
+import ArticleCard from '../Article/ArticleCard'
 import styles from './TopicInfo.module.css'
 
 function TopicInfo() {
     const { topic_name } = useParams()
     const [article, setArticle] = useState([])
-
+    console.log(article)
     const [isLoading, setIsloading] = useState(null)
 
     useEffect(() => {
@@ -25,7 +25,7 @@ function TopicInfo() {
     ) : (
         <div className={styles.topic_detail}>
             <h1>
-                All Articles for{' '}
+                Article type :{' '}
                 {topic_name.charAt(0).toUpperCase() + topic_name.slice(1)}
             </h1>
             <ArticleCard article={article} />

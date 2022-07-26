@@ -1,4 +1,5 @@
-import styles from '../Card/ArticleCard.module.css'
+import { Link } from 'react-router-dom'
+import styles from './ArticleCard.module.css'
 
 function ArticleCard({ article }) {
     return (
@@ -7,19 +8,15 @@ function ArticleCard({ article }) {
                 {article.map((eachArticle) => (
                     <li className={styles.topicInfo_card}>
                         <p>
-                            <b>Title :</b> {eachArticle.title}
+                            <Link
+                                to={'/api/articles/' + eachArticle.article_id}
+                            >
+                                <b>Title :</b> {eachArticle.title}
+                            </Link>
                         </p>
                         <p>
                             <b>Author :</b>
                             {eachArticle.author}
-                        </p>
-                        <p>
-                            <b>Votes :</b>
-                            {eachArticle.votes}
-                        </p>
-                        <p>
-                            <b>Date Posted :</b>
-                            {eachArticle.created_at}
                         </p>
                     </li>
                 ))}
