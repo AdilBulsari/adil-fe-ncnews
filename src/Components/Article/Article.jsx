@@ -16,19 +16,14 @@ function Article() {
         },
     ])
 
-    const [isThereAnyArticle, setIsThereAnyArticle] = useState(true)
-
     useEffect(() => {
         axios
             .get('https://adil-nc-news.herokuapp.com/api/articles')
             .then((res) => {
-                if (res.data.length > 0) setAllArticles(res.data)
-                else {
-                    setIsThereAnyArticle(false)
-                }
+                setAllArticles(res.data)
             })
     }, [])
-    return isThereAnyArticle ? (
+    return articles.length > 0 ? (
         <div>
             <h1 className={styles.article_header}>
                 You are viewing all the articles from NC-NEWS
