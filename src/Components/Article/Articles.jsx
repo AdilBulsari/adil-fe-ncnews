@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import styles from './Articles.module.css'
 import ArticleCard from '../Utils/ArticleCard'
+import { Link } from 'react-router-dom'
 
 function Articles() {
     const [article, setAllArticle] = useState([])
@@ -20,7 +21,12 @@ function Articles() {
     return article.length > 0 ? (
         article.map((item) => (
             <li key={item.article_id}>
-                <ArticleCard article={item} />
+                <Link
+                    className={styles.link}
+                    to={'/api/articles/' + item.article_id}
+                >
+                    <ArticleCard article={item} />
+                </Link>
             </li>
         ))
     ) : isLoading ? (
