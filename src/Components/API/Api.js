@@ -25,3 +25,14 @@ export function getArticleById(article_id) {
             return res.data
         })
 }
+
+export function patchVoteById(article_id, vote_count) {
+    return axios
+        .patch(
+            `https://adil-nc-news.herokuapp.com/api/articles/${article_id}`,
+            { inc_votes: vote_count }
+        )
+        .then((res) => {
+            return res.data
+        })
+}

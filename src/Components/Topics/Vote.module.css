@@ -1,5 +1,16 @@
 .vote {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.like {
+    height: 50px;
+    width: 50px;
+}
+
+.unlike {
+    height: 50px;
+    width: 50px;
 }

@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import styles from '../Article/Article.module.css'
-import Vote from '../Topics/Vote'
 
 function Article() {
     const [articles, setAllArticles] = useState([
@@ -43,7 +42,6 @@ function Article() {
                                     </p>
                                     <p>Topic : {article.topic}</p>
                                     <p>Votes : {article.votes}</p>
-                                    <Vote />
                                 </div>
                             </div>
                         </li>
