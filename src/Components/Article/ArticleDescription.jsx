@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getArticleById } from '../API/Api'
+import ArticleCard from '../Utils/ArticleCard'
 import styles from './ArticleDescription.module.css'
 
 function ArticleDescription() {
@@ -18,32 +19,7 @@ function ArticleDescription() {
 
     return !isLoading ? (
         <>
-            <h1> Description</h1>
-            <div className={styles.description}>
-                <div className={styles.article_view}>
-                    <p>
-                        <b>Title : </b>
-                        {article.title}
-                    </p>
-                    <p>
-                        <b>Author :</b> {article.author}
-                    </p>
-                    <p>
-                        <b>Description :</b> {article.body}
-                    </p>
-                    <p>
-                        <b>Topic : </b>
-                        {article.topic}
-                    </p>
-                    <p>
-                        <b>Votes : </b>
-                        {article.votes}
-                    </p>
-                    <p>
-                        <b>Comments made :</b> {article.total_comments}
-                    </p>
-                </div>
-            </div>
+            <ArticleCard article={article} />
         </>
     ) : (
         <p className={styles.loading}>Loading ... </p>
