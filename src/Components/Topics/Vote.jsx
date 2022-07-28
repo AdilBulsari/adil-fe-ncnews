@@ -8,19 +8,14 @@ function Vote(props) {
     const [disableUnLikeButton, setDisableUnLikeButton] = useState(true)
     const [error, setError] = useState(false)
 
-    function increaseVoteHandlerApi() {
-        setDisableUnLikeButton((prevState) => !prevState)
-        props.setVotes((prevVote) => prevVote + 1)
-        patchVoteById(props.article.article_id, 1).catch((err) => {
-            setError(true)
-        })
+    function VoteHandlerApi(voteCount) {
         setDisableLikeButton((prevState) => !prevState)
-    }
-
-    function decreaseVoteHandlerApi() {
-        setDisableLikeButton((prevState) => !prevState)
-        props.setVotes((prevVote) => prevVote - 1)
-        patchVoteById(props.article.article_id, -1).catch((err) => {
+        if (voteCount === 1) {
+            props.setVotes((prevVote) => prevVote + 1)
+        } else {
+            props.setVotes((prevVote) => prevVote - 1)
+        }
+        patchVoteById(props.article.article_id, voteCount).catch((err) => {
             setError(true)
         })
         setDisableUnLikeButton((prevState) => !prevState)
@@ -33,7 +28,7 @@ function Vote(props) {
             </p>
             <Button
                 disabled={disableLikeButton ? 'disabled' : ''}
-                onClick={increaseVoteHandlerApi}
+                onClick={() => VoteHandlerApi(+1)}
             >
                 <img
                     className={styles.like}
@@ -43,7 +38,7 @@ function Vote(props) {
             </Button>
             <Button
                 disabled={disableUnLikeButton ? 'disabled' : ''}
-                onClick={decreaseVoteHandlerApi}
+                onClick={() => VoteHandlerApi(-1)}
             >
                 <img
                     alt="unlike"
