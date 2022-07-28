@@ -7,7 +7,7 @@ import dislikeicon from '../Tools/LikeSVG/dislikeicon.png'
 
 function Vote(props) {
     const [disableLikeButton, setDisableLikeButton] = useState(false)
-    const [disableUnLikeButton, setDisableUnLikeButton] = useState(false)
+    const [disableUnLikeButton, setDisableUnLikeButton] = useState(true)
     const [error, setError] = useState(false)
     const [hasVoted, setHasVoted] = useState(null)
 
@@ -25,7 +25,7 @@ function Vote(props) {
         } else {
             props.setVotes((prevVote) => prevVote - 1)
         }
-        patchVoteById(props.article.article_id, voteCount).catch((err) => {
+        patchVoteById(props.article.article_id, voteCount).catch(() => {
             setError(true)
         })
     }
@@ -39,12 +39,14 @@ function Vote(props) {
                 <Button
                     disabled={disableLikeButton}
                     onClick={() => VoteHandlerApi(+1)}
+                    className={styles.nc_button}
                 >
                     <img className={styles.like} alt="like" src={likeicon} />
                 </Button>
                 <Button
                     disabled={disableUnLikeButton}
                     onClick={() => VoteHandlerApi(-1)}
+                    className={styles.nc_button}
                 >
                     <img
                         alt="unlike"
