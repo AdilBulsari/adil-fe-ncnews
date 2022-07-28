@@ -1,6 +1,6 @@
 import styles from './ArticleCard.module.css'
 
-function ArticleCard({ article }) {
+function ArticleCard({ article, votes }) {
     return (
         <div>
             <h1> {article.title}</h1>
@@ -22,7 +22,7 @@ function ArticleCard({ article }) {
                     </p>
                     <p>
                         <b>Votes : </b>
-                        {article.votes}
+                        {votes}
                     </p>
                     <p>
                         <b>Comments made :</b> {article.total_comments}

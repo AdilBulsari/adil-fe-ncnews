@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getArticlesForTopics } from '../API/Api'
-import ArticleCard from './TopicLists'
 import styles from './TopicInfo.module.css'
+import TopicLists from './TopicLists'
 
 function TopicInfo() {
     const { topic_name } = useParams()
@@ -28,7 +28,7 @@ function TopicInfo() {
                 Article type :{' '}
                 {topic_name.charAt(0).toUpperCase() + topic_name.slice(1)}
             </h1>
-            <ArticleCard article={article} />
+            <TopicLists article={article} />
         </div>
     )
 }

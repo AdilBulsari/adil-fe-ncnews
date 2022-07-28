@@ -6,28 +6,42 @@ import likeicon from '../Tools/LikeSVG/likeicon.png'
 import dislikeicon from '../Tools/LikeSVG/dislikeicon.png'
 
 function Vote(props) {
-    const [disableLikeButton, setDisableLikeButton] = useState(false)
-    const [disableUnLikeButton, setDisableUnLikeButton] = useState(true)
+    const [likeButton, setLikeButton] = useState(false)
+    const [disLikeButton, setDisLikeButton] = useState(false)
     const [error, setError] = useState(false)
-    const [hasVoted, setHasVoted] = useState(null)
 
     function VoteHandlerApi(voteCount) {
-        setHasVoted((prevState) => !prevState)
-        setDisableLikeButton((prevState) => !prevState)
-        if (disableLikeButton) {
-            setDisableUnLikeButton(true)
-        } else {
-            setDisableUnLikeButton(false)
-        }
-
         if (voteCount === 1) {
+            setLikeButton((prevState) => !prevState)
+            if (likeButton) {
+                patchVoteById(props.article.article_id, -1).catch(() => {
+                    setError(true)
+                })
+                return props.setVotes((prevVote) => prevVote - 1)
+            }
+            if (disLikeButton) {
+                setDisLikeButton(false)
+            }
             props.setVotes((prevVote) => prevVote + 1)
+            patchVoteById(props.article.article_id, voteCount).catch(() => {
+                setError(true)
+            })
         } else {
+            setDisLikeButton((prevState) => !prevState)
+            if (disLikeButton) {
+                patchVoteById(props.article.article_id, 1).catch(() => {
+                    setError(true)
+                })
+                return props.setVotes((prevVote) => prevVote + 1)
+            }
+            if (likeButton) {
+                setLikeButton(false)
+            }
             props.setVotes((prevVote) => prevVote - 1)
+            patchVoteById(props.article.article_id, voteCount).catch(() => {
+                setError(true)
+            })
         }
-        patchVoteById(props.article.article_id, voteCount).catch(() => {
-            setError(true)
-        })
     }
 
     return (
@@ -37,16 +51,23 @@ function Vote(props) {
                     <b>CLICK TO VOTE</b>
                 </p>
                 <Button
-                    disabled={disableLikeButton}
                     onClick={() => VoteHandlerApi(+1)}
-                    className={styles.nc_button}
+                    className={
+                        likeButton
+                            ? styles.nc_button_selected
+                            : styles.nc_button
+                    }
                 >
                     <img className={styles.like} alt="like" src={likeicon} />
                 </Button>
                 <Button
-                    disabled={disableUnLikeButton}
+                    // disabled={disLikeButton}
                     onClick={() => VoteHandlerApi(-1)}
-                    className={styles.nc_button}
+                    className={
+                        disLikeButton
+                            ? styles.nc_button_selected
+                            : styles.nc_button
+                    }
                 >
                     <img
                         alt="unlike"
@@ -56,7 +77,6 @@ function Vote(props) {
                 </Button>
             </div>
             {error ? <p> Could not Vote try again ... </p> : null}
-            {hasVoted ? <p>You Liked the vote</p> : <p>&nbsp;</p>}
         </div>
     )
 }

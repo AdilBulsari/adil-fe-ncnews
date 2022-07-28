@@ -29,12 +29,7 @@ function App() {
                             path="/api/articleTopics/:topic_name"
                             element={<TopicInfo />}
                         />
-                        <Route path="/api/articles" element={<Article />} />
-
-                        <Route
-                            path="/api/getAllArticles"
-                            element={<Articles />}
-                        />
+                        <Route path="/api/articles" element={<Articles />} />
 
                         <Route
                             path="/api/articles/:article_id"
