@@ -36,3 +36,14 @@ export function patchVoteById(article_id, vote_count) {
             return res.data
         })
 }
+
+export function getCommentsByArticleId(article_id) {
+    return axios
+        .get(
+            `https://adil-nc-news.herokuapp.com/api/articles/${article_id}/comments`
+        )
+        .then((res) => {
+            console.log(res.data)
+            return res.data
+        })
+}

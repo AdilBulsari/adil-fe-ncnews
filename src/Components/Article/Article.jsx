@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import styles from '../Article/Article.module.css'
 
 function Article() {
@@ -28,6 +29,7 @@ function Article() {
             <h1 className={styles.article_header}>
                 You are viewing all the articles from NC-NEWS
             </h1>
+
             <div className={styles.align_center}>
                 <ul className={styles.ul}>
                     {articles.map((article) => (
@@ -37,9 +39,19 @@ function Article() {
                                     <p>Description :{article.body}</p>
                                     <br />
                                     <p>Author :{article.author}</p>
-                                    <p>
-                                        Total Comments :{article.comment_count}
-                                    </p>
+                                    <Link
+                                        className={styles.article_comment_link}
+                                        to={
+                                            '/api/articles/' +
+                                            article.article_id +
+                                            '/comments'
+                                        }
+                                    >
+                                        <b>
+                                            Total Comments :
+                                            {article.comment_count}
+                                        </b>
+                                    </Link>
                                     <p>Topic : {article.topic}</p>
                                     <p>Votes : {article.votes}</p>
                                 </div>

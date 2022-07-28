@@ -35,3 +35,15 @@
     text-align: justify;
     margin: 40px;
 }
+.article_comment_link {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    background-color: teal;
+    border: 1px solid teal;
+}
+
+.article_comment_link:hover {
+    color: teal;
+    background-color: white;
+}
