@@ -45,12 +45,7 @@ function ArticleDescription() {
                     <p>
                         <b>Comments made :</b> {article.total_comments}
                     </p>
-                    <Vote
-                        article={article}
-                        votes={votes}
-                        setVotes={setVotes}
-                        setArticle={setArticle}
-                    />
+                    <Vote article={article} setVotes={setVotes} />
                 </div>
             </div>
         </>
