@@ -13,6 +13,13 @@
     margin: 20px;
 }
 
+.loading {
+    text-align: center;
+    font-size: xx-large;
+    color: rgb(0, 0, 0);
+    margin-top: 20px;
+}
+
 .no_article {
     margin-top: 20%;
     color: rgb(231, 149, 149);
@@ -34,4 +41,8 @@
     align-items: flex-start;
     text-align: justify;
     margin: 40px;
+}
+
+.link {
+    color: black;
 }

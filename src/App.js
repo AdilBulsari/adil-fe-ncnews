@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-import Article from './Components/Article/Article'
 import ArticleDescription from './Components/Article/ArticleDescription'
-
+import Articles from './Components/Article/Articles'
 import { TopicsContext } from './Components/Context/TopicsContext'
 import Home from './Components/Home/Home'
 import NavBar from './Components/Navigation/NavBar'
@@ -31,6 +30,12 @@ function App() {
                             element={<TopicInfo />}
                         />
                         <Route path="/api/articles" element={<Article />} />
+
+                        <Route
+                            path="/api/getAllArticles"
+                            element={<Articles />}
+                        />
+
                         <Route
                             path="/api/articles/:article_id"
                             element={<ArticleDescription />}

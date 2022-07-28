@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getArticleById } from '../API/Api'
+
 import Vote from '../Topics/Vote'
+
+import ArticleCard from '../Utils/ArticleCard'
+
 import styles from './ArticleDescription.module.css'
 
 function ArticleDescription() {
@@ -21,6 +25,7 @@ function ArticleDescription() {
 
     return !isLoading ? (
         <>
+
             <h1> Description</h1>
             <div className={styles.description}>
                 <div className={styles.article_view}>
@@ -48,6 +53,9 @@ function ArticleDescription() {
                     <Vote article={article} setVotes={setVotes} />
                 </div>
             </div>
+
+            <ArticleCard article={article} />
+
         </>
     ) : (
         <p className={styles.loading}>Loading ... </p>
