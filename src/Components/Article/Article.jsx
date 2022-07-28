@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from '../Article/Article.module.css'
+import AddComment from '../Comments/AddComment'
 
 function Article() {
     const [articles, setAllArticles] = useState([
@@ -55,6 +56,7 @@ function Article() {
                                     <p>Topic : {article.topic}</p>
                                     <p>Votes : {article.votes}</p>
                                 </div>
+                                <AddComment />
                             </div>
                         </li>
                     ))}
