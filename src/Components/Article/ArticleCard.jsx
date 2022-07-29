@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
 import styles from './ArticleCard.module.css'
 
-function ArticleCard({ article }) {
+function ArticleCard({ articles }) {
     return (
         <div>
             <ul className={styles.card_ul}>
-                {article.map((eachArticle) => (
+                {articles.map((eachArticle) => (
                     <li
                         key={eachArticle.article_id}
                         className={styles.topicInfo_card}

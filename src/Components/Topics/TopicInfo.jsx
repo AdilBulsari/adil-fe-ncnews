@@ -7,7 +7,6 @@ import TopicLists from './TopicLists'
 function TopicInfo() {
     const { topic_name } = useParams()
     const [article, setArticle] = useState([])
-    console.log(article)
     const [isLoading, setIsloading] = useState(null)
 
     useEffect(() => {

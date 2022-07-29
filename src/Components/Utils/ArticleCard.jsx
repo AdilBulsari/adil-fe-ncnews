@@ -20,10 +20,12 @@ function ArticleCard({ article, votes }) {
                         <b>Topic : </b>
                         {article.topic}
                     </p>
-                    <p>
-                        <b>Votes : </b>
-                        {votes}
-                    </p>
+                    {
+                        <p>
+                            <b>Votes : </b>
+                            {votes ? votes : article.votes}
+                        </p>
+                    }
                     <p>
                         <b>Comments made :</b> {article.total_comments}
                     </p>

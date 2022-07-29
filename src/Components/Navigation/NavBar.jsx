@@ -13,11 +13,11 @@ function NavBar() {
                             <NavLink to="/">Home</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/api/getAllArticles">Articles</NavLink>
+                            <NavLink to="/api/articles">Articles</NavLink>
                         </li>
 
                         <li>
-                            <NavLink to="/api/getAllTopics">Topics</NavLink>
+                            <NavLink to="/api/topics">Topics</NavLink>
                         </li>
                     </ul>
                 </div>

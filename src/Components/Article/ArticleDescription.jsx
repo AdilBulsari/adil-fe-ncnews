@@ -25,12 +25,10 @@ function ArticleDescription() {
 
     return !isLoading ? (
         <>
-            <div>
-                <div className={styles.description}>
-                    <ArticleCard article={article} votes={votes} />
-                    <Vote article={article} setVotes={setVotes} />
-                    <AddComment article_id={article_id} />
-                </div>
+            <div className={styles.description}>
+                <ArticleCard article={article} votes={votes} />
+                <Vote article={article} setVotes={setVotes} />
+                <AddComment article_id={article_id} />
             </div>
 
             <h3

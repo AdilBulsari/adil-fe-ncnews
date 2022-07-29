@@ -9,49 +9,51 @@ function Vote(props) {
     const [likeButton, setLikeButton] = useState(false)
     const [disLikeButton, setDisLikeButton] = useState(false)
     const [error, setError] = useState(false)
+    const [disableLikeButton, setDisableLikeButton] = useState(false)
+    const [disableDisLikeButton, setDisableDisLikeButton] = useState(false)
 
     function VoteHandlerApi(voteCount) {
         if (voteCount === 1) {
             setLikeButton((prevState) => !prevState)
+            setDisableDisLikeButton(true)
             if (likeButton) {
+                setDisableDisLikeButton(false)
                 patchVoteById(props.article.article_id, -1).catch(() => {
                     setError(true)
                 })
                 return props.setVotes((prevVote) => prevVote - 1)
             }
-            if (disLikeButton) {
-                setDisLikeButton(false)
-            }
-            props.setVotes((prevVote) => prevVote + 1)
+
             patchVoteById(props.article.article_id, voteCount).catch(() => {
                 setError(true)
             })
+            props.setVotes((prevVote) => prevVote + 1)
         } else {
             setDisLikeButton((prevState) => !prevState)
+            setDisableLikeButton(true)
             if (disLikeButton) {
+                setDisableLikeButton(false)
                 patchVoteById(props.article.article_id, 1).catch(() => {
                     setError(true)
                 })
                 return props.setVotes((prevVote) => prevVote + 1)
             }
-            if (likeButton) {
-                setLikeButton(false)
-            }
-            props.setVotes((prevVote) => prevVote - 1)
+
             patchVoteById(props.article.article_id, voteCount).catch(() => {
                 setError(true)
             })
+            props.setVotes((prevVote) => prevVote - 1)
         }
     }
 
     return (
         <div className={styles.vote_div}>
             <div className={styles.vote}>
-                <p>
-                    <b>CLICK TO VOTE</b>
-                </p>
+                <b>CLICK TO VOTE :</b>
+
                 <Button
                     onClick={() => VoteHandlerApi(+1)}
+                    disabled={disableLikeButton}
                     className={
                         likeButton
                             ? styles.nc_button_selected
@@ -61,8 +63,8 @@ function Vote(props) {
                     <img className={styles.like} alt="like" src={likeicon} />
                 </Button>
                 <Button
-                    // disabled={disLikeButton}
                     onClick={() => VoteHandlerApi(-1)}
+                    disabled={disableDisLikeButton}
                     className={
                         disLikeButton
                             ? styles.nc_button_selected

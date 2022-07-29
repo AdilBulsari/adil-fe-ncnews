@@ -77,7 +77,7 @@ function AddComment({ article_id }) {
                     ''
                 )}
                 {isError ? <p>Invalid username</p> : null}
-                {isFormSubmitted ? <p>Form submitted successfully</p> : ''}
+                {isFormSubmitted ? <p>Comment posted successfully</p> : ''}
             </form>
         </div>
     )
