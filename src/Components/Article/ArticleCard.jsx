@@ -6,7 +6,10 @@ function ArticleCard({ article }) {
         <div>
             <ul className={styles.card_ul}>
                 {article.map((eachArticle) => (
-                    <li className={styles.topicInfo_card}>
+                    <li
+                        key={eachArticle.article_id}
+                        className={styles.topicInfo_card}
+                    >
                         <p>
                             <Link
                                 to={'/api/articles/' + eachArticle.article_id}
