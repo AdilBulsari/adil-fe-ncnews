@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getArticleById } from '../API/Api'
-
+import AddComment from '../Comments/AddComment'
 import Vote from '../Topics/Vote'
-
 import ArticleCard from '../Utils/ArticleCard'
-
 import styles from './ArticleDescription.module.css'
 
 function ArticleDescription() {
@@ -29,6 +27,7 @@ function ArticleDescription() {
                 <div className={styles.description}>
                     <ArticleCard article={article} votes={votes} />
                     <Vote article={article} setVotes={setVotes} />
+                    <AddComment article_id={article_id} />
                 </div>
             }
         </>
