@@ -27,3 +27,11 @@
 .menu li {
     padding: 5px 14px;
 }
+.nav_linke.active {
+    color: #fff !important;
+    background: black !important;
+}
+
+.menu li:active {
+    background-color: #000000;
+}

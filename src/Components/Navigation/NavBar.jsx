@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import style from '../Navigation/NavBar.module.css'
 
 function NavBar() {
@@ -10,14 +10,14 @@ function NavBar() {
                 <div className={style.nav_links}>
                     <ul className={style.menu}>
                         <li>
-                            <Link to="/">Home</Link>
+                            <NavLink to="/">Home</NavLink>
                         </li>
                         <li>
-                            <Link to="/api/getAllArticles">Articles</Link>
+                            <NavLink to="/api/getAllArticles">Articles</NavLink>
                         </li>
 
                         <li>
-                            <Link to="/api/getAllTopics">Topics</Link>
+                            <NavLink to="/api/getAllTopics">Topics</NavLink>
                         </li>
                     </ul>
                 </div>

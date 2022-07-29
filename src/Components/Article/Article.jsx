@@ -1,8 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import styles from '../Article/Article.module.css'
-import AddComment from '../Comments/AddComment'
 
 function Article() {
     const [articles, setAllArticles] = useState([
@@ -40,23 +38,10 @@ function Article() {
                                     <p>Description :{article.body}</p>
                                     <br />
                                     <p>Author :{article.author}</p>
-                                    <Link
-                                        className={styles.article_comment_link}
-                                        to={
-                                            '/api/articles/' +
-                                            article.article_id +
-                                            '/comments'
-                                        }
-                                    >
-                                        <b>
-                                            Total Comments :
-                                            {article.comment_count}
-                                        </b>
-                                    </Link>
+                                    Total Comments :{article.comment_count}
                                     <p>Topic : {article.topic}</p>
                                     <p>Votes : {article.votes}</p>
                                 </div>
-                                <AddComment />
                             </div>
                         </li>
                     ))}

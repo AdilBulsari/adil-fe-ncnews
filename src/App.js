@@ -38,10 +38,10 @@ function App() {
                             path="/api/articles/:article_id"
                             element={<ArticleDescription />}
                         />
-                        <Route
+                        {/* <Route
                             path="/api/articles/:article_id/comments"
                             element={<Comments />}
-                        />
+                        /> */}
                     </Routes>
                 </TopicsContext.Provider>
             </div>

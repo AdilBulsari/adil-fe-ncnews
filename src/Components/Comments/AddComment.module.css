@@ -1,7 +1,0 @@
-add_comment_card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 20px;
-    padding: 20px;
-}

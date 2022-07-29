@@ -23,3 +23,8 @@
     text-align: center;
     align-items: center;
 }
+
+.comment {
+    cursor: pointer;
+    color: rgb(7, 86, 93);
+}
