@@ -60,7 +60,7 @@ function ArticleDescription() {
                 className={styles.comment}
                 onClick={() => setViewComments((prevState) => !prevState)}
             >
-                Click here to view comments
+                Click here to {viewComments ? 'hide' : 'view'} comments
             </h3>
 
             {viewComments ? <Comments /> : null}
