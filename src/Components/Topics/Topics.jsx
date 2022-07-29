@@ -1,12 +1,14 @@
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getAllTopics } from '../API/Api'
-import { TopicsContext } from '../Context/TopicsContext'
 
 import styles from '../Topics/Topics.module.css'
 
 function Topics() {
-    const { topics, setTopic } = useContext(TopicsContext)
+    const [topics, setTopic] = useState({
+        slug: '',
+        description: '',
+    })
     const [isLoading, setIsloading] = useState(true)
 
     useEffect(() => {

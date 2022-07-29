@@ -1,4 +1,3 @@
-
 .article_view {
     margin: 20px;
     border: 0.5px solid black;
@@ -21,4 +20,16 @@
     font-size: xx-large;
     color: rgb(0, 0, 0);
     margin-top: 20px;
+}
+
+.description {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.comment {
+    cursor: pointer;
+    color: rgb(7, 86, 93);
 }

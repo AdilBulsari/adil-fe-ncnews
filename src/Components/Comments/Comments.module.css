@@ -1,0 +1,9 @@
+.comment_card {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 120px;
+    width: auto;
+    background-color: rgb(26, 157, 157);
+    padding: 20px;
+    text-align: left;
+}
