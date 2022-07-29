@@ -47,3 +47,10 @@ export function getCommentsByArticleId(article_id) {
             return res.data
         })
 }
+
+export function postCommentByArticleId(article_id, body) {
+    return axios.post(
+        `https://adil-nc-news.herokuapp.com/api/articles/${article_id}/comments`,
+        body
+    )
+}

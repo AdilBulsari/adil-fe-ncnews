@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getArticleById } from '../API/Api'
 import Comments from '../Comments/Comments'
+import AddComment from '../Comments/AddComment'
 import Vote from '../Topics/Vote'
+import ArticleCard from '../Utils/ArticleCard'
 import styles from './ArticleDescription.module.css'
 
 function ArticleDescription() {
@@ -23,36 +25,11 @@ function ArticleDescription() {
 
     return !isLoading ? (
         <>
-            <h1> Description</h1>
-            <div className={styles.description}>
-                <div className={styles.article_view}>
-                    <p>
-                        <b>Title : </b>
-                        {article.title}
-                    </p>
-                    <p>
-                        <b>Author :</b> {article.author}
-                    </p>
-                    <p>
-                        <b>Description :</b> {article.body}
-                    </p>
-                    <p>
-                        <b>Topic : </b>
-                        {article.topic}
-                    </p>
-                    <p>
-                        <b>Votes : </b>
-                        {votes}
-                    </p>
-                    <p>
-                        <b>Comments made :</b> {article.total_comments}
-                    </p>
-                    <Vote
-                        article={article}
-                        votes={votes}
-                        setVotes={setVotes}
-                        setArticle={setArticle}
-                    />
+            <div>
+                <div className={styles.description}>
+                    <ArticleCard article={article} votes={votes} />
+                    <Vote article={article} setVotes={setVotes} />
+                    <AddComment article_id={article_id} />
                 </div>
             </div>
 

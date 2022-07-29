@@ -39,9 +39,7 @@ function Topics() {
                             <tr key={i}>
                                 <td>
                                     <Link
-                                        to={
-                                            '/api/getTopicArticle/' + topic.slug
-                                        }
+                                        to={'/api/articleTopics/' + topic.slug}
                                     >
                                         {topic.slug.charAt(0).toUpperCase() +
                                             topic.slug.slice(1)}
