@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Article from './Components/Article/Article'
 import ArticleDescription from './Components/Article/ArticleDescription'
-import Comments from './Components/Comments/Comments'
 import { TopicsContext } from './Components/Context/TopicsContext'
 import Home from './Components/Home/Home'
 import NavBar from './Components/Navigation/NavBar'
@@ -38,10 +37,6 @@ function App() {
                             path="/api/articles/:article_id"
                             element={<ArticleDescription />}
                         />
-                        {/* <Route
-                            path="/api/articles/:article_id/comments"
-                            element={<Comments />}
-                        /> */}
                     </Routes>
                 </TopicsContext.Provider>
             </div>

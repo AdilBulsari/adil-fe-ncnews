@@ -8,6 +8,7 @@ function Comments() {
     const [comments, setComments] = useState([])
     useEffect(() => {
         getCommentsByArticleId(article_id).then((data) => {
+            console.log(data)
             setComments(data)
         })
     }, [article_id])
@@ -23,6 +24,15 @@ function Comments() {
                         >
                             <p>
                                 <b>comment :</b> {comment.body}
+                            </p>
+                            <p>
+                                <b>Author :</b>
+                                {comment.author}
+                            </p>
+
+                            <p>
+                                <b>Date :</b>
+                                {Date(comment.created_at).toLocaleString()}
                             </p>
                         </li>
                     )
