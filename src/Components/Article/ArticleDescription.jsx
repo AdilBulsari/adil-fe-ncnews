@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getArticleById } from '../API/Api'
+import AddComment from '../Comments/AddComment'
 
 import Vote from '../Topics/Vote'
 
@@ -29,6 +30,7 @@ function ArticleDescription() {
                 <div className={styles.description}>
                     <ArticleCard article={article} votes={votes} />
                     <Vote article={article} setVotes={setVotes} />
+                    <AddComment />
                 </div>
             }
         </>
