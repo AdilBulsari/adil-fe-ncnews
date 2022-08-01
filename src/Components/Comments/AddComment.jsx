@@ -68,16 +68,18 @@ function AddComment({ article_id }) {
                 >
                     Submit
                 </button>
-                {!isvalidFormField ? (
-                    <p>
-                        Enter correct{' '}
-                        {isFieldValid(form.body) ? 'comment' : 'author name'}
+                {isError ? (
+                    <p className={styles.invalid_user}>
+                        Enter a valid username
+                    </p>
+                ) : null}
+                {isFormSubmitted ? (
+                    <p className={styles.comment_success}>
+                        Comment posted successfully
                     </p>
                 ) : (
                     ''
                 )}
-                {isError ? <p>Invalid username</p> : null}
-                {isFormSubmitted ? <p>Comment posted successfully</p> : ''}
             </form>
         </div>
     )

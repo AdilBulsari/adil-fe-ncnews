@@ -54,3 +54,11 @@ export function postCommentByArticleId(article_id, body) {
         body
     )
 }
+
+export function sortByDate(type) {
+    return axios
+        .get(`https://adil-nc-news.herokuapp.com/api/articles/?sort_by=${type}`)
+        .then((res) => {
+            return res.data
+        })
+}

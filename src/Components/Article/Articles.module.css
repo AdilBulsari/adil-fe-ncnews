@@ -2,6 +2,24 @@
     width: 70%;
 }
 
+.sort {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+select {
+    width: auto;
+    font-size: 20px;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(18, 168, 168);
+}
+.h1 {
+    margin-top: 12px;
+}
+
 .align_center {
     display: flex;
     flex-direction: column;
