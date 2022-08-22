@@ -7,3 +7,16 @@
     padding: 20px;
     text-align: left;
 }
+
+.delete_button {
+    width: 50px;
+    color: teal;
+    height: 50px;
+    border-radius: 20px;
+    /* width: 20px; */
+}
+.buttonFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}

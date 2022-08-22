@@ -24,6 +24,39 @@
     border-radius: 5px;
     transition: 0.3s ease;
 }
+.loggedIn__user {
+    color: rgb(4, 213, 213);
+}
+.avatar_url {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+.show_user_button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 10px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.show_user_dropdown {
+    position: absolute;
+    z-index: 1000;
+    background-color: white;
+    border-radius: 5px;
+    right: 0;
+    padding: 8px 20px;
+    top: 40px;
+
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
 .menu li {
     padding: 5px 14px;
 }

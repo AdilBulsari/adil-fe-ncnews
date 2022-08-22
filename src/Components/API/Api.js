@@ -9,6 +9,13 @@ export function getArticlesForTopics(topic_name) {
             return res.data
         })
 }
+export const deleteComment = (comment_id) => {
+    return axios
+        .delete(`https://adil-nc-news.herokuapp.com/api/comments/${comment_id}`)
+        .catch((err) => {
+            console.log(err)
+        })
+}
 
 export function getAllTopics() {
     return axios

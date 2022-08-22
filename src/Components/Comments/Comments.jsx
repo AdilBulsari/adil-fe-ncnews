@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getCommentsByArticleId } from '../API/Api'
 import styles from '../Comments/Comments.module.css'
+import CommentDelete from './CommentDelete'
 
 function Comments() {
     const { article_id } = useParams()
@@ -14,7 +15,7 @@ function Comments() {
 
     return (
         <div>
-            <ul>
+            <ul className={styles.comment}>
                 {comments.map((comment) => {
                     return (
                         <li
@@ -33,6 +34,11 @@ function Comments() {
                                 <b>Date :</b>
                                 {Date(comment.created_at).toLocaleString()}
                             </p>
+                            <CommentDelete
+                                comments={comments}
+                                setComments={setComments}
+                                comment={comment}
+                            />
                         </li>
                     )
                 })}

@@ -1,7 +1,11 @@
+import { useContext, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import style from '../Navigation/NavBar.module.css'
+import { UserContext } from '../User/User'
 
 function NavBar() {
+    const { loggedInUser } = useContext(UserContext)
+    const [showUser, setShowUser] = useState(false)
     return (
         <div>
             <nav className={style.navbar}>
@@ -21,6 +25,24 @@ function NavBar() {
                         </li>
                     </ul>
                 </div>
+                <button
+                    className={style.show_user_button}
+                    onClick={() => setShowUser(!showUser)}
+                >
+                    <img
+                        className={style.avatar_url}
+                        src={loggedInUser.avatar_url}
+                        alt={loggedInUser.username}
+                    />
+                </button>
+
+                {showUser && (
+                    <div className={style.show_user_dropdown}>
+                        <p className={style.loggedIn__user}>
+                            User: {loggedInUser.username}
+                        </p>
+                    </div>
+                )}
             </nav>
         </div>
     )
