@@ -39,7 +39,7 @@ function ArticleCard({ article, votes }) {
                     </p>
                     <p>
                         <b>Date posted : </b>
-                        {article.created_at}
+                        {Date(article.created_at).toLocaleString()}
                     </p>
                 </div>
             </div>
