@@ -15,7 +15,7 @@ function Comments() {
 
     return (
         <div>
-            <ul className={styles.comment}>
+            <ul>
                 {comments.map((comment) => {
                     return (
                         <li
@@ -34,11 +34,13 @@ function Comments() {
                                 <b>Date :</b>
                                 {Date(comment.created_at).toLocaleString()}
                             </p>
-                            <CommentDelete
-                                comments={comments}
-                                setComments={setComments}
-                                comment={comment}
-                            />
+                            <div className={styles.comment}>
+                                <CommentDelete
+                                    comments={comments}
+                                    setComments={setComments}
+                                    comment={comment}
+                                />
+                            </div>
                         </li>
                     )
                 })}
