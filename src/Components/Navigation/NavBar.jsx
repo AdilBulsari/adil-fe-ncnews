@@ -10,7 +10,6 @@ function NavBar() {
         <div>
             <nav className={style.navbar}>
                 <div className={style.logo}>Adil's NC NEWS</div>
-
                 <div className={style.nav_links}>
                     <ul className={style.menu}>
                         <li>
@@ -25,6 +24,7 @@ function NavBar() {
                         </li>
                     </ul>
                 </div>
+
                 <button
                     className={style.show_user_button}
                     onClick={() => setShowUser(!showUser)}
@@ -35,7 +35,6 @@ function NavBar() {
                         alt={loggedInUser.username}
                     />
                 </button>
-
                 {showUser && (
                     <div className={style.show_user_dropdown}>
                         <p className={style.loggedIn__user}>
