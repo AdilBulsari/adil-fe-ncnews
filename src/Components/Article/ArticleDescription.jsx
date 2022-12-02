@@ -4,7 +4,7 @@ import { getArticleById } from '../API/Api'
 import Comments from '../Comments/Comments'
 import AddComment from '../Comments/AddComment'
 import Vote from '../Topics/Vote'
-import ArticleCard from '../Utils/ArticleCard'
+import ArticleCard from './ArticleCard'
 import styles from './ArticleDescription.module.css'
 
 function ArticleDescription() {

@@ -9,7 +9,7 @@ function NavBar() {
     return (
         <div>
             <nav className={style.navbar}>
-                <div className={style.logo}>Adil's NC NEWS</div>
+                <div className={style.logo}>NC NEWS</div>
                 <div className={style.nav_links}>
                     <ul className={style.menu}>
                         <li>

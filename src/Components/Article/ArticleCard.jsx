@@ -1,29 +1,48 @@
-import { Link } from 'react-router-dom'
 import styles from './ArticleCard.module.css'
 
-function ArticleCard({ articles }) {
+function ArticleCard({ article, votes }) {
     return (
         <div>
-            <ul className={styles.card_ul}>
-                {articles.map((eachArticle) => (
-                    <li
-                        key={eachArticle.article_id}
-                        className={styles.topicInfo_card}
-                    >
+            <h1> {article.title}</h1>
+            <div className={styles.description}>
+                <div className={styles.article_view}>
+                    <p>
+                        <b>Title : </b>
+                        {article.title}
+                    </p>
+                    <p>
+                        <b>Author :</b> {article.author}
+                    </p>
+                    <p>
+                        <b>Description :</b> {article.body}
+                    </p>
+                    <p>
+                        <b>Topic : </b>
+                        {article.topic}
+                    </p>
+                    {votes ? (
                         <p>
-                            <Link
-                                to={'/api/articles/' + eachArticle.article_id}
-                            >
-                                <b>Title :</b> {eachArticle.title}
-                            </Link>
+                            <b>Votes : </b>
+                            {votes}
                         </p>
+                    ) : (
                         <p>
-                            <b>Author :</b>
-                            {eachArticle.author}
+                            <b>Votes : </b>
+                            {article.votes}
                         </p>
-                    </li>
-                ))}
-            </ul>
+                    )}
+                    <p>
+                        <b>Comments made :</b>{' '}
+                        {article.comment_count
+                            ? article.comment_count
+                            : article.total_comments}
+                    </p>
+                    <p>
+                        <b>Date posted : </b>
+                        {Date(article.created_at).toLocaleString()}
+                    </p>
+                </div>
+            </div>
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import styles from './Articles.module.css'
-import ArticleCard from '../Utils/ArticleCard'
+import ArticleCard from './ArticleCard'
 import { Link } from 'react-router-dom'
 import { sortByDate } from '../API/Api'
 
