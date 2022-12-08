@@ -7,13 +7,17 @@ function TopicLists({ article }) {
             {article.map((eachArticle, index) => (
                 <li key={index} className={styles.topicInfo_card}>
                     <p>
-                        <Link to={'/api/articles/' + eachArticle.article_id}>
-                            <b>Title :</b> {eachArticle.title}
+                        <Link
+                            className={styles.title}
+                            to={'/api/articles/' + eachArticle.article_id}
+                        >
+                            <b className={styles.title}>Title :</b>
+                            {eachArticle.title}
+                            <p style={{ marginTop: '10px' }}>
+                                <b>Author :</b>
+                                {eachArticle.author}
+                            </p>
                         </Link>
-                    </p>
-                    <p>
-                        <b>Author :</b>
-                        {eachArticle.author}
                     </p>
                 </li>
             ))}

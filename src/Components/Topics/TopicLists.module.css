@@ -1,21 +1,28 @@
 .card_ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .topicInfo_card {
     margin: 20px;
-    border: 0.5px solid black;
+    border: 2.5px solid rgba(10, 36, 31, 0.195);
+    border-radius: 20px;
     text-align: left;
-    width: 18%;
+    width: 22%;
+    flex-grow: 2;
     padding: 12px;
+    height: auto;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    letter-spacing: 0.1em;
     background-color: rgb(158, 236, 236);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Copperplate, Geneva, Tahoma, sans-serif;
     box-shadow: 0 4px 8px 0 rgba(23, 183, 197, 0.2),
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+:hover.topicInfo_card {
+    background-color: rgba(100, 110, 15, 0.491);
+    border-color: black;
+    cursor: pointer;
 }
 
 .loading {
@@ -23,4 +30,11 @@
     font-size: xx-large;
     color: rgb(0, 0, 0);
     margin-top: 20px;
+}
+
+.title {
+    color: black;
+    font-weight: 900;
+    font-style: normal;
+    background-color: aliceblue;
 }

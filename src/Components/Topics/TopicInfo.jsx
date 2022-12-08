@@ -19,12 +19,17 @@ function TopicInfo() {
 
     return isLoading ? (
         <div className={styles.loading}>
-            <p>Loading ... </p>
+            <p>Loading content ... </p>
         </div>
     ) : (
         <div className={styles.topic_detail}>
-            <h1>
-                Article type :{' '}
+            <h1
+                style={{
+                    fontFamily: 'Geneva',
+                    letterSpacing: '0.1em',
+                }}
+            >
+                Article type -{' '}
                 {topic_name.charAt(0).toUpperCase() + topic_name.slice(1)}
             </h1>
             <TopicLists article={article} />
