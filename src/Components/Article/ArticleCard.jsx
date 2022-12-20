@@ -3,12 +3,10 @@ import styles from './ArticleCard.module.css'
 function ArticleCard({ article, votes }) {
     return (
         <div>
-            <h1> {article.title}</h1>
             <div className={styles.description}>
-                <div className={styles.article_view}>
-                    <p>
-                        <b>Title : </b>
-                        {article.title}
+                <article className={styles.articleView}>
+                    <p className={styles.title}>
+                        <b>Title : {article.title} </b>
                     </p>
                     <p>
                         <b>Author :</b> {article.author}
@@ -41,7 +39,7 @@ function ArticleCard({ article, votes }) {
                         <b>Date posted : </b>
                         {Date(article.created_at).toLocaleString()}
                     </p>
-                </div>
+                </article>
             </div>
         </div>
     )
