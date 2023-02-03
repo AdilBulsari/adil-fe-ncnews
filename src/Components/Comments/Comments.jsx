@@ -32,7 +32,7 @@ function Comments() {
 
                             <p>
                                 <b>Date :</b>
-                                {Date(comment.created_at).toLocaleString()}
+                                {new Date(comment.created_at).toDateString()}
                             </p>
                             <div className={styles.comment}>
                                 <CommentDelete

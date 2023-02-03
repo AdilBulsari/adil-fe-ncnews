@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import ArticleDescription from './Components/Article/ArticleDescription'
@@ -9,6 +10,7 @@ import Topics from './Components/Topics/Topics'
 import { UserContext } from './Components/User/User'
 
 function App() {
+    const [users, setUsers] = useState([])
     const [loggedInUser, setLoggedInUser] = useState({
         username: 'jessjelly',
         name: 'Jess Jelly',
@@ -16,12 +18,33 @@ function App() {
             'https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141',
     })
 
+    const getUsers = async () => {
+        const { data } = await axios.get(
+            'https://adil-nc-news.cyclic.app/api/users'
+        )
+        try {
+            setUsers(data.users)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        getUsers()
+    }, [])
+
     const isLoggedIn = loggedInUser !== null
 
     return (
         <BrowserRouter>
             <UserContext.Provider
-                value={{ loggedInUser, setLoggedInUser, isLoggedIn }}
+                value={{
+                    loggedInUser,
+                    setLoggedInUser,
+                    isLoggedIn,
+                    users,
+                    setUsers,
+                }}
             >
                 <div className="App">
                     <NavBar />

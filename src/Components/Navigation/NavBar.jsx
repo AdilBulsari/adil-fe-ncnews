@@ -1,11 +1,13 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import style from '../Navigation/NavBar.module.css'
 import { UserContext } from '../User/User'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function NavBar() {
-    const { loggedInUser } = useContext(UserContext)
-    const [showUser, setShowUser] = useState(false)
+    const { loggedInUser, users, setLoggedInUser } = useContext(UserContext)
+
     return (
         <div>
             <nav className={style.navbar}>
@@ -22,24 +24,42 @@ function NavBar() {
                     </ul>
                 </div>
 
-                <button
-                    className={style.show_user_button}
-                    onClick={() => setShowUser(!showUser)}
-                >
-                    <img
-                        className={style.avatar_url}
-                        src={loggedInUser.avatar_url}
-                        alt={loggedInUser.username}
-                    />
-                </button>
-                {showUser && (
-                    <div className={style.show_user_dropdown}>
-                        <p className={style.loggedIn__user}>
-                            User: {loggedInUser.username}
-                        </p>
+                <div className={style.dropdown}>
+                    <button className={style.dropbtn}>
+                        <img
+                            className={style.avatar_url}
+                            src={loggedInUser.avatar_url}
+                            alt={loggedInUser.username}
+                        />
+                    </button>
+                    <div className={style['dropdown-content']}>
+                        {users.map((user) => {
+                            return (
+                                <p
+                                    onClick={() => {
+                                        toast(`User ${user.username} selected`)
+                                        setLoggedInUser(user)
+                                    }}
+                                >
+                                    {user.username}
+                                </p>
+                            )
+                        })}
                     </div>
-                )}
+                </div>
             </nav>
+            <ToastContainer
+                position="top-center"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+            />
         </div>
     )
 }
