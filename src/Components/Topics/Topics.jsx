@@ -5,10 +5,8 @@ import { getAllTopics } from '../API/Api'
 import styles from '../Topics/Topics.module.css'
 
 function Topics() {
-    const [topics, setTopic] = useState({
-        slug: '',
-        description: '',
-    })
+    const [topics, setTopic] = useState([])
+
     const [isLoading, setIsloading] = useState(true)
 
     useEffect(() => {

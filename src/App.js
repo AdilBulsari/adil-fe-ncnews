@@ -6,7 +6,6 @@ import ArticleDescription from './Components/Article/ArticleDescription'
 import Articles from './Components/Article/Articles'
 import NavBar from './Components/Navigation/NavBar'
 import TopicInfo from './Components/Topics/TopicInfo'
-import Topics from './Components/Topics/Topics'
 import { UserContext } from './Components/User/User'
 
 function App() {
@@ -25,7 +24,7 @@ function App() {
         try {
             setUsers(data.users)
         } catch (error) {
-            console.log(error)
+            alert('Something went wrong !!')
         }
     }
 
@@ -50,14 +49,14 @@ function App() {
                     <NavBar />
                     <Routes>
                         <Route path="/" element={<Articles />} />
-                        <Route path="/api/topics" element={<Topics />} />
+
                         <Route
-                            path="/api/articleTopics/:topic_name"
+                            path="/topics/:topic_name"
                             element={<TopicInfo />}
                         />
-                        <Route path="/api/articles" element={<Articles />} />
+                        <Route path="/topics/articles" element={<Articles />} />
                         <Route
-                            path="/api/articles/:article_id"
+                            path="/topics/articles/:article_id"
                             element={<ArticleDescription />}
                         />
                     </Routes>

@@ -51,12 +51,14 @@ function AddComment({ article_id }) {
                 <input
                     type="text"
                     name="username"
+                    className="border outline-none"
                     onChange={inputChangeHandler}
                     value={form.username}
                 />
                 Comment
                 <input
                     type="text"
+                    className="border outline-none"
                     name="body"
                     onChange={inputChangeHandler}
                     value={form.body}

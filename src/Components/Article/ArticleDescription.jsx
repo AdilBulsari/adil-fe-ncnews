@@ -37,7 +37,6 @@ function ArticleDescription() {
             >
                 Click here to {viewComments ? 'hide' : 'view'} comments
             </h3>
-
             {viewComments ? <Comments /> : null}
         </>
     ) : (

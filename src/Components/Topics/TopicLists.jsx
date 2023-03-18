@@ -9,7 +9,7 @@ function TopicLists({ article }) {
                     <p>
                         <Link
                             className={styles.title}
-                            to={'/api/articles/' + eachArticle.article_id}
+                            to={'/topics/articles/' + eachArticle.article_id}
                         >
                             <b className={styles.title}>Title :</b>
                             {eachArticle.title}
