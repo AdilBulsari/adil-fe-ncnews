@@ -6,15 +6,19 @@ import TopicLists from './TopicLists'
 
 function TopicInfo() {
     const { topic_name } = useParams()
-    const [article, setArticle] = useState([])
+    const [articles, setArticles] = useState([])
     const [isLoading, setIsloading] = useState(null)
 
     useEffect(() => {
         setIsloading(true)
-        getArticlesForTopics(topic_name).then((data) => {
-            setArticle(data)
-            setIsloading(false)
-        })
+        getArticlesForTopics(topic_name)
+            .then((data) => {
+                setArticles(data)
+                setIsloading(false)
+            })
+            .catch((err) => {
+                setIsloading(true)
+            })
     }, [topic_name])
 
     return isLoading ? (
@@ -32,7 +36,7 @@ function TopicInfo() {
                 Article type -{' '}
                 {topic_name.charAt(0).toUpperCase() + topic_name.slice(1)}
             </h1>
-            <TopicLists article={article} />
+            <TopicLists articles={articles} />
         </div>
     )
 }
