@@ -34,7 +34,7 @@ function Articles() {
                 <li key={item.article_id}>
                     <Link
                         className={styles.link}
-                        to={'/api/articles/' + item.article_id}
+                        to={'/topics/articles/' + item.article_id}
                     >
                         <ArticleCard article={item} />
                     </Link>
