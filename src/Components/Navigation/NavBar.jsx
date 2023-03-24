@@ -28,16 +28,28 @@ function NavBar() {
         <div>
             <nav className={style.navbar}>
                 <div className={style.logo}>NC NEWS</div>
-                <div className={style.nav_links}>
+                <div>
                     <ul className={style.menu}>
                         <li>
-                            <NavLink to="/">Home</NavLink>
+                            <NavLink
+                                className={({ isActive }) =>
+                                    isActive ? style.active : ''
+                                }
+                                to="/"
+                            >
+                                Home
+                            </NavLink>
                         </li>
 
                         {topics.map((topic, i) => {
                             return (
-                                <li key={i}>
-                                    <NavLink to={'/topics/' + topic.slug}>
+                                <li className={style['navlink-li']} key={i}>
+                                    <NavLink
+                                        className={({ isActive }) =>
+                                            isActive ? style.active : ''
+                                        }
+                                        to={'/topics/' + topic.slug}
+                                    >
                                         {topic.slug.charAt(0).toUpperCase() +
                                             topic.slug.slice(1)}
                                     </NavLink>

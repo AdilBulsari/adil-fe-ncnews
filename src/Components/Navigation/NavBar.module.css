@@ -6,7 +6,7 @@
     background-color: teal;
     color: #fff;
 }
-.nav_links a {
+.nav-links a {
     color: #fff;
 }
 /* LOGO */
@@ -16,14 +16,39 @@
 /* NAVBAR MENU */
 .menu {
     display: flex;
-    gap: 1em;
+    gap: 4em;
     font-size: 18px;
 }
-.menu li:hover {
+@media (max-width: 767px) {
+    .navbar {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-shrink: 2;
+        padding: 10px;
+    }
+    .menu {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        font-size: 18px;
+    }
+}
+.navlink-li :hover {
+    padding: 8px;
+    text-decoration: underline;
+    background-color: #1c2a2a;
+    border-radius: 10px;
+    transition: background-color 0.5s ease;
+}
+
+.active {
     background-color: #4c9e9e;
     border-radius: 5px;
-    transition: 0.3s ease;
+    padding: 8px;
 }
+
 .loggedIn__user {
     color: rgb(4, 213, 213);
 }

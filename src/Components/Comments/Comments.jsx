@@ -14,7 +14,7 @@ function Comments() {
     }, [article_id])
 
     return (
-        <div>
+        <article>
             <ul>
                 {comments.map((comment) => {
                     return (
@@ -45,7 +45,7 @@ function Comments() {
                     )
                 })}
             </ul>
-        </div>
+        </article>
     )
 }
 

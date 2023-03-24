@@ -19,10 +19,20 @@
     box-shadow: 0 4px 8px 0 rgba(23, 183, 197, 0.2),
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 :hover.topicInfo_card {
     background-color: rgba(100, 110, 15, 0.491);
     border-color: black;
     cursor: pointer;
+}
+@media (max-width: 767px) {
+    .card_ul {
+        display: flex;
+        flex-direction: column;
+    }
+    .topicInfo_card {
+        width: auto;
+    }
 }
 
 .loading {

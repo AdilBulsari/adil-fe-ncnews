@@ -26,7 +26,7 @@ function TopicInfo() {
             <p>Loading content ... </p>
         </div>
     ) : (
-        <div className={styles.topic_detail}>
+        <div className={styles['topic-details']}>
             <h1
                 style={{
                     fontFamily: 'Geneva',

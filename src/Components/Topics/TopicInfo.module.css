@@ -1,5 +1,4 @@
-.topic_detail {
-    text-align: center;
-    text-decoration: none;
-    margin: 10px;
+.topic-details {
+    display: flex;
+    flex-direction: column;
 }
