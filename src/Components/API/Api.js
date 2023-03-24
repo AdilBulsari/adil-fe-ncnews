@@ -1,5 +1,5 @@
 import axios from 'axios'
-const url = 'https://adil-nc-news.cyclic.app'
+const url = 'https://be-nc-news-94ro.onrender.com'
 export function getArticlesForTopics(topic_name) {
     return axios
         .get(`${url}/api/articles?filter_by=${topic_name}`)

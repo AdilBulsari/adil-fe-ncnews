@@ -19,7 +19,7 @@ function App() {
 
     const getUsers = async () => {
         const { data } = await axios.get(
-            'https://adil-nc-news.cyclic.app/api/users'
+            'https://be-nc-news-94ro.onrender.com/api/users'
         )
         try {
             setUsers(data.users)
