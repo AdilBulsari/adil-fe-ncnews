@@ -1,6 +1,6 @@
 .loading {
     text-align: center;
-    font-size: xx-large;
+    font-size: large;
     color: rgb(0, 0, 0);
     margin-top: 20px;
 }
@@ -15,7 +15,7 @@
 
 .comment {
     cursor: pointer;
-    color: rgb(7, 86, 93);
+    color: rgb(20, 18, 18);
 }
 
 @media (max-width: 700px) {

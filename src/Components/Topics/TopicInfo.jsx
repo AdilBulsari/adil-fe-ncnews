@@ -30,7 +30,6 @@ function TopicInfo() {
             <h1
                 style={{
                     fontFamily: 'Geneva',
-                    letterSpacing: '0.1em',
                 }}
             >
                 Article type -{' '}

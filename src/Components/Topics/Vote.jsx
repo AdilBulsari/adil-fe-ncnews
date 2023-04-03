@@ -29,7 +29,7 @@ function Vote(props) {
                 alt="like"
                 src={upVote}
             />
-
+            <span style={{ margin: '0px 10px' }}>{props.vote}</span>
             <img
                 onClick={() => VoteHandlerApi(false)}
                 alt="unlike"

@@ -3,8 +3,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    background-color: teal;
-    color: #fff;
+    background-color: rgb(230, 227, 227);
+    color: #0f0e0e;
 }
 .nav-links a {
     color: #fff;
@@ -44,7 +44,7 @@
 }
 
 .active {
-    background-color: #4c9e9e;
+    background-color: #767f7f;
     border-radius: 5px;
     padding: 8px;
 }
@@ -90,7 +90,7 @@
     color: black;
     margin: 5px;
     border-radius: 10px;
-    background-color: #4c9e9e;
+    background-color: rgb(230, 227, 227);
     padding: 3px 1px;
     text-decoration: none;
     text-align: left;

@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom'
 import { getArticleById } from '../API/Api'
 import Comments from '../Comments/Comments'
 import AddComment from '../Comments/AddComment'
-import Vote from '../Topics/Vote'
 import ArticleCard from './ArticleCard'
 import styles from './ArticleDescription.module.css'
 
@@ -27,7 +26,6 @@ function ArticleDescription() {
         <>
             <div className={styles.description}>
                 <ArticleCard article={article} votes={votes} />
-                <Vote article={article} setVotes={setVotes} />
                 <AddComment article_id={article_id} />
             </div>
 
