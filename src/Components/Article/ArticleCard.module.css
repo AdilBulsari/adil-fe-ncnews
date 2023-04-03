@@ -1,22 +1,15 @@
 .articleView {
-    margin: 20px;
-    border: 2.5px solid rgba(10, 36, 31, 0.195);
+    margin: 3% 0;
     border-radius: 20px;
     text-align: left;
-    padding: 12px;
     font-size: large;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    height: auto;
-    letter-spacing: 0.1em;
-    background-color: rgb(158, 236, 236);
+    background-color: rgb(215, 214, 214);
     font-family: Copperplate, Geneva, Tahoma, sans-serif;
-    box-shadow: 0 4px 8px 0 rgba(23, 183, 197, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 2% 6%;
 }
 :hover.articleView {
-    background-color: rgba(100, 110, 15, 0.491);
+    background-color: rgba(74, 80, 24, 0.491);
     border-color: black;
-    cursor: pointer;
 }
 .loading {
     text-align: center;
@@ -31,21 +24,8 @@
     font-size: 30px;
     color: black;
     font-style: normal;
-    background-color: rgb(122, 167, 143);
     border-radius: 20px;
 }
 .description {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    width: auto;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-p {
-    color: black;
-}
-h1 {
-    color: black;
+    padding: 0 8%;
 }

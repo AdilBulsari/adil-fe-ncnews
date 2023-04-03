@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import styles from './Articles.module.css'
 import ArticleCard from './ArticleCard'
-import { Link } from 'react-router-dom'
+
 import { sortByDate } from '../API/Api'
 
 function Articles() {
@@ -32,12 +32,7 @@ function Articles() {
             </div>
             {article.map((item) => (
                 <li key={item.article_id}>
-                    <Link
-                        className={styles.link}
-                        to={'/topics/articles/' + item.article_id}
-                    >
-                        <ArticleCard article={item} />
-                    </Link>
+                    <ArticleCard article={item} />
                 </li>
             ))}
         </div>
