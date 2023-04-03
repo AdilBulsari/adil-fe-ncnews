@@ -1,24 +1,16 @@
 .vote {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-self: auto;
-}
-b {
-    margin-top: 50px;
-    margin-right: 10px;
-}
-.like {
-    height: 50px;
-    width: 50px;
+    flex-direction: row-reverse;
+    align-items: baseline;
 }
 
+.like,
 .unlike {
     height: 50px;
     width: 50px;
 }
 
-.vote_div {
+.vote-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
