@@ -37,7 +37,7 @@ function NavBar() {
                                 }
                                 to="/"
                             >
-                                Home
+                                All Articles
                             </NavLink>
                         </li>
 
