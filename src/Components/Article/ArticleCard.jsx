@@ -9,7 +9,7 @@ function ArticleCard({ article }) {
         <div className={styles.description}>
             <article className={styles.articleView}>
                 <header className={styles.title}>
-                    <b>Title: {article.title} </b>
+                    <p>Title: {article.title} </p>
                 </header>
                 <section>
                     <b>Author:</b> {article.author}
