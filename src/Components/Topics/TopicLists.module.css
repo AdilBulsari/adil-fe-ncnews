@@ -13,15 +13,13 @@
     padding: 12px;
     height: auto;
     background-color: rgb(230, 227, 227);
-    font-family: Copperplate, Geneva, Tahoma, sans-serif;
+    font-family: Geneva, Tahoma, sans-serif;
     box-shadow: 0 4px 8px 0 rgba(131, 131, 131, 0.2),
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .author-name {
-    background-color: rgb(67, 71, 71);
+    background-color: rgb(84, 84, 84);
     color: beige;
-
-    width: 100%;
 }
 
 :hover.topicInfo-card {
@@ -43,7 +41,8 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    margin: 10px 2;
+    margin: 10px 2px;
+    padding: 10px;
 }
 .loading {
     text-align: center;

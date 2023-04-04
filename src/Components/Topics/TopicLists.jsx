@@ -11,9 +11,9 @@ function TopicLists({ articles }) {
                             className={styles.title}
                             to={'/topics/articles/' + eachArticle.article_id}
                         >
-                            <b className={styles.title}>
+                            <p className={styles.title}>
                                 Title: {eachArticle.title}{' '}
-                            </b>
+                            </p>
                         </Link>
                         <p className={styles['author-name']}>
                             <b>Author: </b>
