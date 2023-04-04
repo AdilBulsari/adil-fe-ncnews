@@ -27,14 +27,6 @@ function TopicInfo() {
         </div>
     ) : (
         <div className={styles['topic-details']}>
-            <h1
-                style={{
-                    fontFamily: 'Geneva',
-                }}
-            >
-                Article type -{' '}
-                {topic_name.charAt(0).toUpperCase() + topic_name.slice(1)}
-            </h1>
             <TopicLists articles={articles} />
         </div>
     )

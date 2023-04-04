@@ -54,7 +54,7 @@ function App() {
                             path="/topics/:topic_name"
                             element={<TopicInfo />}
                         />
-                        <Route path="/topics/articles" element={<Articles />} />
+
                         <Route
                             path="/topics/articles/:article_id"
                             element={<ArticleDescription />}
