@@ -5,14 +5,15 @@ import ArticleCard from './ArticleCard'
 import { sortByDate } from '../API/Api'
 
 function Articles() {
-    const [article, setAllArticle] = useState([])
+    const [articles, setAllArticles] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [option, setOption] = useState('created_at')
 
     useEffect(() => {
         setIsLoading(true)
         sortByDate(option).then((data) => {
-            setAllArticle(data)
+            setAllArticles(data)
+            setIsLoading(false)
         })
     }, [option])
 
@@ -20,7 +21,7 @@ function Articles() {
         setOption(e.target.value)
     }
 
-    return article.length > 0 ? (
+    return articles.length > 0 ? (
         <div>
             <div className={styles.sort}>
                 <h1 className={styles.h1}>Sort Articles:</h1>
@@ -30,14 +31,14 @@ function Articles() {
                     <option value="votes">Votes</option>
                 </select>
             </div>
-            {article.map((item) => (
-                <li key={item.article_id}>
-                    <ArticleCard article={item} />
+            {articles.map((article) => (
+                <li key={article.article_id}>
+                    <ArticleCard article={article} />
                 </li>
             ))}
         </div>
     ) : isLoading ? (
-        <p className={styles.loading}>Loading ... </p>
+        <p className={styles.loading}>Loading articles please wait ... </p>
     ) : (
         <h1 className={styles.no_article}>
             Sorry there are no articles at the moments
