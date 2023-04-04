@@ -1,17 +1,18 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { postCommentByArticleId } from '../API/Api'
 import styles from '../Comments/AddComment.module.css'
+import { UserContext } from '../User/User'
 
 function AddComment({ article_id }) {
-    const [form, setForm] = useState({
-        username: '',
-        body: '',
-    })
-
+    const { loggedInUser } = useContext(UserContext)
     const [isError, setIsError] = useState(false)
     const [isvalidFormField, setIsValidFormField] = useState(true)
     const [isFormSubmitted, setIsFormSubmitted] = useState(false)
 
+    const [form, setForm] = useState({
+        username: loggedInUser.username,
+        body: '',
+    })
     function isFieldValid(data) {
         return data.length > 3
     }
@@ -27,6 +28,7 @@ function AddComment({ article_id }) {
 
     function onSubmitHandler(e) {
         e.preventDefault()
+        console.log(form)
         if (isFieldValid(form.body) && isFieldValid(form.username)) {
             postCommentByArticleId(article_id, form)
                 .then(() => {
@@ -44,18 +46,18 @@ function AddComment({ article_id }) {
     }
 
     return (
-        <div>
+        <div className={styles.container}>
             <h1>Would you like to comment on this article ?</h1>
             <form className={styles.form} onSubmit={onSubmitHandler}>
-                Existing Author
+                <label>Logged In Author</label>
+
                 <input
-                    type="text"
                     name="username"
-                    className="border outline-none"
-                    onChange={inputChangeHandler}
-                    value={form.username}
+                    disabled
+                    placeholder={loggedInUser.name}
                 />
-                Comment
+
+                <label>Comment </label>
                 <input
                     type="text"
                     className="border outline-none"
@@ -66,18 +68,18 @@ function AddComment({ article_id }) {
                 <button
                     disabled={!isvalidFormField}
                     type="submit"
-                    className={styles.comment_button}
+                    className={styles['comment-button']}
                 >
                     Submit
                 </button>
                 {isError ? (
-                    <p className={styles.invalid_user}>
+                    <p className={styles['invalid-user']}>
                         Enter a valid username
                     </p>
                 ) : null}
                 {isFormSubmitted ? (
-                    <p className={styles.comment_success}>
-                        Comment posted successfully
+                    <p className={styles['comment-success']}>
+                        Comment posted successfully !!
                     </p>
                 ) : (
                     ''
