@@ -1,39 +1,50 @@
-.card_ul {
+.card-ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
-.topicInfo_card {
-    margin: 20px;
-    border: 2.5px solid rgba(15, 16, 15, 0.195);
-    border-radius: 20px;
+.topicInfo-card {
+    margin: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
     text-align: left;
     width: 22%;
     flex-grow: 2;
     padding: 12px;
     height: auto;
-    display: flex;
     background-color: rgb(230, 227, 227);
     font-family: Copperplate, Geneva, Tahoma, sans-serif;
-    box-shadow: 0 4px 8px 0 rgba(23, 183, 197, 0.2),
+    box-shadow: 0 4px 8px 0 rgba(131, 131, 131, 0.2),
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.author-name {
+    background-color: rgb(67, 71, 71);
+    color: beige;
 
-:hover.topicInfo_card {
-    background-color: rgba(100, 110, 15, 0.491);
+    width: 100%;
+}
+
+:hover.topicInfo-card {
+    background-color: rgba(64, 64, 63, 0.491);
     border-color: black;
     cursor: pointer;
 }
 @media (max-width: 767px) {
-    .card_ul {
+    .card-ul {
         display: flex;
         flex-direction: column;
     }
-    .topicInfo_card {
+    .topicInfo-card {
         width: auto;
     }
 }
-
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    margin: 10px 2;
+}
 .loading {
     text-align: center;
     font-size: xx-large;
