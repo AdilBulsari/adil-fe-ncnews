@@ -14,38 +14,36 @@ function Comments() {
     }, [article_id])
 
     return (
-        <article>
-            <ul>
-                {comments.map((comment) => {
-                    return (
-                        <li
-                            className={styles.comment_card}
-                            key={comment.comment_id}
-                        >
-                            <p>
-                                <b>comment :</b> {comment.body}
-                            </p>
-                            <p>
-                                <b>Author :</b>
-                                {comment.author}
-                            </p>
+        <ul className={styles['comment-container']}>
+            {comments.map((comment) => {
+                return (
+                    <li
+                        className={styles['comment-card']}
+                        key={comment.comment_id}
+                    >
+                        <p>
+                            <b>Comment :</b> {comment.body}
+                        </p>
+                        <p>
+                            <b>Author :</b>
+                            {comment.author}
+                        </p>
 
-                            <p>
-                                <b>Date :</b>
-                                {new Date(comment.created_at).toDateString()}
-                            </p>
-                            <div className={styles.comment}>
-                                <CommentDelete
-                                    comments={comments}
-                                    setComments={setComments}
-                                    comment={comment}
-                                />
-                            </div>
-                        </li>
-                    )
-                })}
-            </ul>
-        </article>
+                        <p>
+                            <b>Date :</b>
+                            {new Date(comment.created_at).toDateString()}
+                        </p>
+                        <div className={styles.comment}>
+                            <CommentDelete
+                                comments={comments}
+                                setComments={setComments}
+                                comment={comment}
+                            />
+                        </div>
+                    </li>
+                )
+            })}
+        </ul>
     )
 }
 
