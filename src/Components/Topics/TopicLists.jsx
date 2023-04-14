@@ -6,20 +6,20 @@ function TopicLists({ articles }) {
         <ul className={styles['card-ul']}>
             {articles.map((eachArticle, index) => (
                 <li key={index} className={styles['topicInfo-card']}>
-                    <div className={styles.card}>
-                        <Link
-                            className={styles.title}
-                            to={'/topics/articles/' + eachArticle.article_id}
-                        >
+                    <Link
+                        className={styles.title}
+                        to={'/topics/articles/' + eachArticle.article_id}
+                    >
+                        <div className={styles.card}>
                             <p className={styles.title}>
                                 Title: {eachArticle.title}{' '}
                             </p>
-                        </Link>
-                        <p className={styles['author-name']}>
-                            <b>Author: </b>
-                            {eachArticle.author}
-                        </p>
-                    </div>
+                            <p className={styles['author-name']}>
+                                <b>Author: </b>
+                                {eachArticle.author}
+                            </p>
+                        </div>
+                    </Link>
                 </li>
             ))}
         </ul>

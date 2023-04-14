@@ -25,39 +25,38 @@ function NavBar() {
     }, [])
 
     return (
-        <div>
+        <>
             <nav className={style.navbar}>
                 <div className={style.logo}>NC NEWS</div>
-                <div>
-                    <ul className={style.menu}>
-                        <li>
-                            <NavLink
-                                className={({ isActive }) =>
-                                    isActive ? style.active : ''
-                                }
-                                to="/"
-                            >
-                                All Articles
-                            </NavLink>
-                        </li>
 
-                        {topics.map((topic, i) => {
-                            return (
-                                <li className={style['navlink-li']} key={i}>
-                                    <NavLink
-                                        className={({ isActive }) =>
-                                            isActive ? style.active : ''
-                                        }
-                                        to={'/topics/' + topic.slug}
-                                    >
-                                        {topic.slug.charAt(0).toUpperCase() +
-                                            topic.slug.slice(1)}
-                                    </NavLink>
-                                </li>
-                            )
-                        })}
-                    </ul>
-                </div>
+                <ul className={style.menu}>
+                    <li>
+                        <NavLink
+                            className={({ isActive }) =>
+                                isActive ? style.active : ''
+                            }
+                            to="/"
+                        >
+                            All Articles
+                        </NavLink>
+                    </li>
+
+                    {topics.map((topic, i) => {
+                        return (
+                            <li key={i}>
+                                <NavLink
+                                    className={({ isActive }) =>
+                                        isActive ? style.active : ''
+                                    }
+                                    to={'/topics/' + topic.slug}
+                                >
+                                    {topic.slug.charAt(0).toUpperCase() +
+                                        topic.slug.slice(1)}
+                                </NavLink>
+                            </li>
+                        )
+                    })}
+                </ul>
 
                 <div className={style.dropdown}>
                     <button className={style.dropbtn}>
@@ -96,7 +95,7 @@ function NavBar() {
                 pauseOnHover
                 theme="dark"
             />
-        </div>
+        </>
     )
 }
 
